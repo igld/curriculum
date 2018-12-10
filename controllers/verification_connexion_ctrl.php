@@ -79,7 +79,7 @@ elseif (isset($_POST['connexion'])) {
 
         echo "Ce mail et ce mot de passe correspondent : connexion autorisée!";
     // print_r($req);
-    // ouvrir session et passer sur la page création de CV
+    // ouvrir session et passer sur la page création de CV verifier la modification avec la session
         session_start();
         $_SESSION['mail'] = $mail;
         $_SESSION['mdp'] = $res['keypass_user'];
