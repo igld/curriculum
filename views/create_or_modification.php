@@ -9,27 +9,22 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  </head>
+    <?php include '../controllers/verification_cv_exist_ctrl.php' ?>
+</head>
   <body>
+  
+
     <div class="container">
-    <form class="jumbotron" method="post" action="#">
+    <form class="jumbotron" method="post" action="<?php echo $make_or_create ?>">
               
-        <div class="form-group row">
+        <div  class="form-group row">
                     <div class="offset-sm-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary" name="make">Créer</button>
-                        <button type="submit" class="btn btn-primary" name="modification">Modifier</button>
+                        <button type="submit" class="btn btn-primary  <?php echo $create ?>"  name="create">Créer</button>
+                        <button type="submit" class="btn btn-primary <?php echo $modification ?>" name="modification">Modifier</button>
                     </div>
                 </div>
         </div>
     </form>  
-
-
- <?php 
-if (isset($_SESSION['mail']) AND isset($_SESSION['mdp']))
-{
-    echo 'Bonjour ' . $_SESSION['mail'];
-}
-?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
