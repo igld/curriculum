@@ -4,7 +4,7 @@ $mail = htmlspecialchars($_POST['mail']);
 $mdp = htmlspecialchars($_POST['mdp']);
 //Hachage mdp pour ne pas l'avoir en clair dans la BDD
 $mdp_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
-// print_r( $_POST);  affichage du post
+// print_r( $_POST); // affichage du post
 //connection à la BDD
 include '../models/connexion_BDD_mdl.php';
 
