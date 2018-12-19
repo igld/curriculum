@@ -19,8 +19,7 @@ if (isset($_POST['enregistrement'])){
     //recherche de correspondance du mail  dans la BDD  
     include '../models/select_mail_mdl.php';
     //print_r($req);
-
-    
+      
     /* SI ON TROUVE L EMAIL DANS LA BDD ON RETOURNE A L INDEX AVEC MESSAGE ERREUR */
     $donnees = $req->fetch();
     // echo ($donnees['$mdp']);
@@ -56,8 +55,6 @@ if (isset($_POST['enregistrement'])){
         header('Refresh: 2;url=../views/create_or_modification.php');
     }
 }
-
-
 
 //----------------- CAS BOUTON CONNEXION -----------------//     
 // Récupération du nom du bouton cliqué cas si connexion     

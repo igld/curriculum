@@ -10,8 +10,6 @@ try{
     'users_id_users' => $id_users,
 
     ));
-
-
 }
 catch(Exception $e){
     die('Erreur : '.$e->getMessage());

@@ -17,7 +17,9 @@ $phone_user = htmlspecialchars($_POST['phone_user']);
 $cv_title_user = htmlspecialchars($_POST['cv_title_user']);
 $handicap_user = htmlspecialchars($_POST['handicap_user']);
 include '../models/update_user_crea_mdl.php';
-var_dump($_POST);
+//var_dump($_POST);
+echo "Donnée sauvegardée";
+header('Refresh: 2;url=../views/creation.php');
 }
 
 // experience
@@ -31,7 +33,9 @@ $mission_exp = htmlspecialchars($_POST['mission_exp']);
 $type_contract_exp = htmlspecialchars($_POST['type_contract_exp']);
 // enregistrement dans la BDD des expéreiences
 include '../models/insert_exp_pro_crea_mdl.php';
-var_dump($_POST);
+//var_dump($_POST);
+echo "xp sauvegardée";
+header('Refresh: 2;url=../views/creation.php');
 }
 else if (isset($_POST['trainings'])){
 // Formations trainings
@@ -44,6 +48,8 @@ $dipl_name_train = htmlspecialchars($_POST['dipl_name_train']);
 $dipl_validate_train = htmlspecialchars($_POST['dipl_validate_train']);
 // enregistrement dans la BDD des Formations
 include '../models/insert_trainings_crea_mdl.php';
+echo "formations sauvegardées";
+header('Refresh: 2;url=../views/creation.php');
 }
 //Compétences skills
 else if (isset($_POST['skills'])){
@@ -51,6 +57,8 @@ $title_skill = htmlspecialchars($_POST['title_skill']);
 $desc_skill  = htmlspecialchars($_POST['desc_skill']);
 // enregistrement dans la BDD des Formations
 include '../models/insert_skills_crea_mdl.php';
+echo "compétence sauvegardée";
+header('Refresh: 2;url=../views/creation.php');
 }
 // realisations
 else if (isset($_POST['realisations'])){
@@ -60,6 +68,8 @@ $title_rea = htmlspecialchars($_POST['title_rea']);
 $desc_rea = htmlspecialchars($_POST['desc_rea']);
 // enregistrement dans la BDD des Formations
 include '../models/insert_realisations_crea_mdl.php';
+echo "réalisation sauvegardée";
+header('Refresh: 2;url=../views/creation.php');
 }
 //activities
 else if (isset($_POST['activities'])){
@@ -67,7 +77,8 @@ $title_act = htmlspecialchars($_POST['title_act']);
 $desc_act = htmlspecialchars($_POST['desc_act']);
 // enregistrement dans la BDD des Formations
 include '../models/insert_activities_crea_mdl.php';
-;
+echo "activité sauvegardée";
+header('Refresh: 2;url=../views/creation.php');
 }
 else{
     echo "erreur inconnu";

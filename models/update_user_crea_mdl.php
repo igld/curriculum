@@ -19,7 +19,6 @@ $id_users = $_SESSION['id_users'];
             $update->bindParam(":phone_user",$phone_user);
             $update->bindParam(":cv_title_user",$cv_title_user);
             $update->bindParam(":handicap_user",$handicap_user);
-           // $update->bindParam(":handicap_user",$id_users);
             $update->execute();
 
     } 

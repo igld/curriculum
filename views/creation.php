@@ -9,11 +9,26 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  </head>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!-- sélection de la tab active -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
+            });
+            var activeTab = localStorage.getItem('activeTab');
+            if(activeTab){
+                $('#myTab a[href="' + activeTab +'"]').tab('show');
+            }
+        });
+    </script>
+
+</head>
   <body>
   <div class="row">
-    <nav class="nav nav-pills offset-3 col-8">
-        <a class="nav-item nav-link " href="#users" data-toggle="tab">Informations Générales</a>
+    <nav class="nav nav-pills offset-3 col-8" id="myTab">
+        <a class="nav-item nav-link active" href="#users" data-toggle="tab">Informations Générales</a>
         <a class="nav-item nav-link " href="#exp_pro" data-toggle="tab">Exprériences Professionnelles</a>
         <a class="nav-item nav-link " href="#trainings" data-toggle="tab">Formations</a>
         <a class="nav-item nav-link " href="#skills" data-toggle="tab">Compétences</a>
