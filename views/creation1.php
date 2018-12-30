@@ -9,22 +9,22 @@
     <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js'></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- jquery -->
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!-- sélection de la tab active -->
     <script type="text/javascript">
-$(document).ready(function(){
-	$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-		localStorage.setItem('activeTab', $(e.target).attr('href'));
-	});
-	var activeTab = localStorage.getItem('activeTab');
-	if(activeTab){
-		$('#myTab a[href="' + activeTab +'"]').tab('show');
-	}
-});
-</script>
+        $(document).ready(function(){
+            $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
+            });
+            var activeTab = localStorage.getItem('activeTab');
+            if(activeTab){
+                $('#myTab a[href="' + activeTab +'"]').tab('show');
+            }
+        });
+    </script>
 
- 
- 
-  </head>
+</head>
   <body>
   <div class="row">
     <nav class="nav nav-pills offset-3 col-8" id="myTab">
@@ -37,28 +37,28 @@ $(document).ready(function(){
     </nav>
   </div>
 <div class="tab-content">  
-    <div class="tab-pane fade container-fluid active" id="users">  
+    <div class="tab-pane active container-fluid" id="users"  ng-app='monAppli' ng-controller="monControleur">  
         <form method="post" action="../controllers/verification_creation_ctrl.php">
-            <div class="row">
+            <div class="row" ng-repeat="users in users">
                 <!-- input caché pour avoir le name button cliqué -->
               <!--  <input type="hidden" name="users" value="'.$data_menu['nom'].'" /> -->
                 <div class="form-group offset-2 col-3">
                     <label for="texte">Nom : </label>
-                    <input id="texte" type="text" class="form-control" name="name_user" >
+                    <input id="texte" type="text" class="form-control" name="name_user" value={{users.name_user}} >
                 </div>
                 <div class="form-group col-3 offset-2">
                     <label for="texte">Prénom : </label>
-                    <input id="texte" type="text" class="form-control" name="lastname_user">
+                    <input id="texte" type="text" class="form-control" name="lastname_user" value={{users.lastname_user}}>
                 </div> 
                 <div class="form-group col-3 offset-2">
                     <label for="texte">Date de naissance : </label>
-                    <input id="texte" type="date" class="form-control" name="date_birth_user">
+                    <input id="texte" type="date" class="form-control" name="date_birth_user" value={{users.date_birth_user}}>
                 </div> 
                 <!-- Force next columns to break to new line -->
                 <div class="w-100"></div>
                 <div class="form-group col-8 offset-2">
                     <label for="texte">Adresse Postale : </label>
-                    <input id="texte" type="text" class="form-control" name="address_user">
+                    <input id="texte" type="text" class="form-control" name="address_user" value={{users.address_user}}>
                 </div> 
                 <!-- Force next columns to break to new line -->
                 <div class="w-100"></div>
@@ -67,25 +67,25 @@ $(document).ready(function(){
                     <input id="texte" type="text" class="form-control"  name="phone_user"  
                         placeholder="0xXXxxXXxx"
                         pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}"
-                        required >
+                        required value={{users.phone_user}}>
                 </div>
                 <!-- Force next columns to break to new line -->
                 <div class="w-100"></div>
                 <div class="form-group col-3 offset-2">
                     <label for="texte">E-mail : </label>
-                    <input id="texte" type="email" class="form-control" readonly>
+                    <input id="texte" type="email" class="form-control" readonly value={{users.mail_user}}>
                 </div> 
                 <!-- Force next columns to break to new line -->
                 <div class="w-100"></div>
                 <div class="form-group col-8 offset-2">
                     <label for="texte">Titre du CV : </label>
-                    <input id="texte" type="text" class="form-control" name="cv_title_user">
+                    <input id="texte" type="text" class="form-control" name="cv_title_user" value={{users.cv_title_user}}>
                 </div> 
                 <!-- Force next columns to break to new line -->
                 <div class="w-100"></div>
                 <div class="form-group col-8 offset-2">
                     <label for="texte">Handicap : </label>
-                    <input id="texte" type="text" class="form-control" name="handicap_user">
+                    <input id="texte" type="text" class="form-control" name="handicap_user" value={{users.handicap_user}}>
                 </div>    
                 <!-- Force next columns to break to new line -->
                 <div class="w-100"></div>
@@ -94,23 +94,6 @@ $(document).ready(function(){
                 </div>
             </div>    
         </form>  
-        <div ng-app='monAppli' ng-controller="monControleur">
-            <br><br><br>
-            {{users}}
-            <br><br><br>
-           <table border="1" width="40%" align="left">
-                <tr>
-                    <th>Marque</th>
-                    <th>Modèle</th>
-                    <th>Pays</th>
-                </tr>
-                <tr ng-repeat="users in users">
-                    <td>{{users.id_users}}</td>
-                    <td>{{users.name_user}}</td>
-                    <td>{{users.lastname_user}}</td>
-                </tr>
-            </table>         
-        </div>
         <script>
             var application = angular.module("monAppli", []);
 
@@ -120,11 +103,10 @@ $(document).ready(function(){
             });
             });
             // EXPLICATIONS: $http est un service natif qui émet une requête au serveur externe et récupère la réponse
-         </script>
-
+         </script>      
     </div>
 
-    <div class="tab-pane  " id="exp_pro">
+    <div class="tab-pane" id="exp_pro">
         <form method="post" action="../controllers/verification_creation_ctrl.php">
             <div class="row">
                 <div class="form-group col-3 offset-2">
@@ -222,7 +204,7 @@ $(document).ready(function(){
             </div>       
         </form>       
     </div>
-    <div class="tab-pane " id="skills">
+    <div class="tab-pane" id="skills">
         <form method="post" action="../controllers/verification_creation_ctrl.php">
             <div class="row">
                 <div class="form-group col-8 offset-2">
@@ -276,7 +258,7 @@ $(document).ready(function(){
             </div>       
         </form>
     </div>
-    <div class="tab-pane  " id="activities">
+    <div class="tab-pane" id="activities">
         <form method="post" action="../controllers/verification_creation_ctrl.php">
         <div class="row">
             <div class="form-group col-8 offset-2">
