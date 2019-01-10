@@ -1,0 +1,85 @@
+
+.element
+{
+	
+	padding: 1%;
+}
+body
+{
+	padding: 1%;
+	color: #212529;
+}
+/* DEFINITION DES FONTS DE CARACTERES */
+@font-face
+{
+	font-family: 'Inconsolata', monospace;
+	font-family: 'Noto Sans', sans-serif;
+	font-family: 'Charmonman', cursive;
+}
+body
+{
+	font-family: 'Noto Sans';
+	font-size: 1em;
+	background-color: #efefef;	
+}
+.research-font
+{
+	font-family: 'Charmonman';
+	font-size: 1.7em;
+	text-align: center;
+}
+.row h1, .row h2
+{
+	color: #3388BB;
+
+}
+.row hr
+{
+	border: 1px solid red;
+}
+.row img
+{	
+	border: 1px solid red;
+	max-width: 100%;
+	height: auto;
+}
+.row .element:nth-child(3)
+{	
+	text-align: center;
+	border: 1px solid red;
+	  margin: auto;
+	  
+	  
+}
+.row .element:nth-child(2)
+{	
+	
+	vertical-align: top;
+	
+}
+
+td:nth-child(1)
+{
+	vertical-align: top; /* ALIGNEMENT DES DONNEES DES TABLEAUX EN HAUT A GAUCHE */
+	width: 25%;  /* CHANGEMENT DE LA TAILLE DU TABLEAU LARGEUR COLONNE DE GAUCHE */
+}
+td:nth-child(2)
+{
+	width: 65%; /* CHANGEMENT DE LA TAILLE DU TABLEAU LARGEUR COLONNE DE DROITE */
+
+}
+td
+{
+	vertical-align: top; /* 	ALIGNEMENT DES DONNEES DES TABLEAUX EN HAUT A */
+}
+
+table
+{
+	/* définit la distance qu'il y a entre les bordures de cellules adjacentes d'un tableau largeur  puis hauteur */
+	border-spacing: 0px 10px;
+	
+	width: 100%;
+	/*
+	max-width: auto;
+	*/
+}

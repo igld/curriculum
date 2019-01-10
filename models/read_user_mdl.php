@@ -38,7 +38,7 @@ try {
       ));
   } 
   catch (PDOException $e) {
-      echo "Base de donnée non disponibleé";
+      echo "Base de donnée non disponible";
   }
 
 

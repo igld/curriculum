@@ -11,10 +11,10 @@ if (isset($_SESSION['mail']) AND isset($_SESSION['mdp']))
         }
         else{
             //cache le boutton modifier et on affiche créer
-            echo "pas encore de cv";
+            echo ". Bienvenue! Vous n'avez pas encore de cv";
             $create = 'visible';
             $modification = 'invisible';
-            $make_or_create = 'creation.php';
+            $make_or_create = 'add_modify_delete_data.php';
         } 
     }
     else {
