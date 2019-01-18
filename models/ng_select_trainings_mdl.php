@@ -13,13 +13,14 @@ $user_mysql = "root";
 $keypass_mysql = "";
 $db_mysql = "curriculum";
 //echo($id_train)
-
+//sélectionne la ligne a afficher dans la partie modification du CV 
 if (isset($id_a_afficher_train) || $_SESSION['id_train']>0 ){
     $id_train = "AND id_train='$id_a_afficher_train'";
    // echo($idexp);
    $_SESSION['id_train'] = $id_train;
    //echo($id_train);
  }
+ //pour sélectionner toutes les lignes correspond à l'utilisateur
 else{
     $id_train = "";
     $id_train= $_SESSION['id_train'] ;
@@ -39,14 +40,19 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"end_date_train":"'.$rs["end_date_train"].'",';
     $outp .= '"school_train":"'.$rs["school_train"].'",';
     $outp .= '"location_train":"'.$rs["location_train"].'",';
-    $outp .= '"title_train":"'.$rs["title_train"].'",';
+    $outp .= '"title_train":"'.$rs["title_train"].'",'; 
     $outp .= '"dipl_name_train":"'.$rs["dipl_name_train"].'",';
-    $outp .= '"dipl_validate_train":"'.$rs["dipl_validate_train"].'",';
+    $outp .= '"dipl_validate_train":"'.$rs["dipl_validate_train"].'",'; $_SESSION['diplomeouinon']=$rs["dipl_validate_train"]; //récupération de l'info si diplome validé ou pas et mise en variable session
     $outp .= '"users_id_users":"'.$rs["users_id_users"].'"}';
 }
 $outp ='{"trainings":['.$outp.']}';
 $conn->close();
 
+//modification de la valeur diplôme validé 0 ou 1 pour changer l'affichage en texte plus compréhensible  
+$outp = str_replace("\"dipl_validate_train\":\"1\"", "\"dipl_validate_train\":\"Diplôme validé\"",$outp);
+$outp = str_replace("\"dipl_validate_train\":\"0\"", "\"dipl_validate_train\":\"Diplôme non validé\"",$outp);
+
 echo($outp);
+
 
 ?>

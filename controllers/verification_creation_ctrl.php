@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo $_SESSION['id_users'];
+//echo $_SESSION['id_users'];
 //connection à la BDD
 include '../models/connexion_BDD_mdl.php';
 var_dump( $_POST);
@@ -18,7 +18,7 @@ $cv_title_user = htmlspecialchars($_POST['cv_title_user']);
 $handicap_user = htmlspecialchars($_POST['handicap_user']);
 include '../models/update_user_crea_mdl.php';
 echo "Donnée sauvegardée";
-header('Refresh: 2;url=../views/creation3.php');
+header('Location: ../views/add_modify_delete_data.php');
 }
 
 // Expérience
@@ -31,7 +31,7 @@ else if (isset($_POST['exp_pro'])){
         include '../models/delete_mdl.php';
         //var_dump($_POST);
         echo "Expérience supprimée";
-        header('Refresh: 2;url=../views/creation3.php');
+        header('Location: ../views/add_modify_delete_data.php');
     }
     elseif(isset($_POST['up_exp_pro'])){
         $mid_exp = htmlspecialchars($_POST['up_exp_pro']);
@@ -47,7 +47,7 @@ else if (isset($_POST['exp_pro'])){
         include '../models/update_exp_pro_mdl.php';
         echo "Expérience mise à jour";
         $_SESSION['id_exp'] ="";
-        header('Refresh: 2;url=../views/add_modify_delete_data.php');
+        header('Location: ../views/add_modify_delete_data.php');
     }
     else{
         $start_date_exp =  htmlspecialchars($_POST['start_date_exp']);
@@ -58,9 +58,9 @@ else if (isset($_POST['exp_pro'])){
         $mission_exp = htmlspecialchars($_POST['mission_exp']);
         $type_contract_exp = htmlspecialchars($_POST['type_contract_exp']);
         // enregistrement dans la BDD des Expériences
-        include '../models/insert_exp_pro_crea_mdl.php'
+        include '../models/insert_exp_pro_crea_mdl.php';
         echo "Expérience sauvegardée";
-        header('Refresh: 2;url=../views/add_modify_delete_data.php');
+        header('Location: ../views/add_modify_delete_data.php');
     }
 }
 else if (isset($_POST['trainings'])){
@@ -78,7 +78,7 @@ else if (isset($_POST['trainings'])){
         include '../models/update_trainings_mdl.php';
         echo "Compétence mise à jour!";
         $_SESSION['id_train'] ="";
-        header('Refresh: 2;url=../views/add_modify_delete_data.php');
+        header('Location: ../views/add_modify_delete_data.php');
     }
     else {
         $start_date_train = htmlspecialchars($_POST['start_date_train']);
@@ -91,7 +91,7 @@ else if (isset($_POST['trainings'])){
         // enregistrement dans la BDD des Formations
         include '../models/insert_trainings_crea_mdl.php';
         echo "Compétences sauvegardées";
-        header('Refresh: 2;url=../views/creation3.php');
+        header('Location: ../views/add_modify_delete_data.php');
     }
 }
 //Compétences skills
@@ -104,7 +104,7 @@ else if (isset($_POST['skills'])){
         include '../models/update_skills_mdl.php';
         echo "Compétence mise à jour";
         $_SESSION['id_skill'] ="";
-        header('Refresh: 2;url=../views/add_modify_delete_data.php');   
+        header('Location: ../views/add_modify_delete_data.php');   
     }
     else{
         $title_skill = htmlspecialchars($_POST['title_skill']);
@@ -112,7 +112,7 @@ else if (isset($_POST['skills'])){
         // enregistrement dans la BDD des Compétences
         include '../models/insert_skills_crea_mdl.php';
         echo "Compétence ajoutée";
-        header('Refresh: 2;url=../views/add_modify_delete_data.php');
+        header('Location: ../views/add_modify_delete_data.php');
 
     }
 }
@@ -128,7 +128,7 @@ else if (isset($_POST['realisations'])){
         include '../models/update_realisations_mdl.php';
         echo "Réalisation mise à jour";
         $_SESSION['id_rea'] ="";
-        header('Refresh: 2;url=../views/add_modify_delete_data.php');   
+        header('Location: ../views/add_modify_delete_data.php');   
     }
     else{
         //modification des Réalisations
@@ -139,7 +139,7 @@ else if (isset($_POST['realisations'])){
         // enregistrement dans la BDD des Réalisations
         include '../models/insert_realisations_crea_mdl.php';
         echo "Réalisation ajoutée";
-        header('Refresh: 2;url=../views/add_modify_delete_data.php');
+        header('Location: ../views/add_modify_delete_data.php');
     }
 }
 // Activités (activities)
@@ -152,7 +152,7 @@ else if (isset($_POST['activities'])){
         include '../models/update_activities_mdl.php';
         echo "Activité mise à jour";
         $_SESSION['id_act'] ="";
-        header('Refresh: 2;url=../views/add_modify_delete_data.php');   
+        header('Location: ../views/add_modify_delete_data.php');   
     }
     else{
         //modification des activités
@@ -161,7 +161,7 @@ else if (isset($_POST['activities'])){
         // enregistrement dans la BDD des Activités
         include '../models/insert_activities_crea_mdl.php';
         echo "Activité ajoutée";
-        header('Refresh: 2;url=../views/add_modify_delete_data.php');
+        header('Location: ../views/add_modify_delete_data.php');
     }
 }
 else{

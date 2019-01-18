@@ -28,7 +28,7 @@ if (isset($_POST['enregistrement'])){
         echo "Ce mail est déjà dans notre base de donnée, veuillez vérifier votre mot de passe!";
         echo "<strong>et utiliser le mode connexion SVP </strong>";
         //Retour a la page de connexion
-        header('Refresh: 2;url=../index.php');
+        header('Location: ../index.php');
     }
     
     /* SINON enregistrement par insertion dans la base de donnée */   
@@ -57,7 +57,7 @@ if (isset($_POST['enregistrement'])){
         $_SESSION['id_act']="";
     
         // page création CV 
-        header('Refresh: 2;url=../views/create_or_modification.php');
+        header('Location: ../views/create_or_modification.php');
     }
 }
 
@@ -93,7 +93,7 @@ elseif (isset($_POST['connexion'])) {
             $_SESSION['id_act']="";
             echo 'SESSION autorisée !';
             // et passer sur la page création de CV
-            header('Refresh: 2;url=../views/create_or_modification.php');
+            header('Location: ../views/create_or_modification.php');
         }  
     }
     /* Mauvais Mail ou MDP  */   
@@ -101,14 +101,14 @@ elseif (isset($_POST['connexion'])) {
         // retour a l'accueil recommencer SVP
         echo "Erreur Mail ou MDP veuillez recommencez SVP";
         // mettre retour a la page de connexion
-        header('Refresh: 2;url=../index.php');
+        header('Location: ../index.php');
     } 
 }
 //Dans tous les autres cas Sécurité
 else {
     echo "comment t'es venu sur cette page ?";
     // mettre retour a la page de connexion
-    header('Refresh: 2;url=../index.php');
+    header('Location: ../index.php');
 }
 
 

@@ -15,9 +15,9 @@ $db_mysql = "curriculum";
 
 if (isset($id_a_afficher_exp) || $_SESSION['id_exp']>0 ){
    $id_exp = "AND id_exp='$id_a_afficher_exp'";
-  // echo($idexp);
-  $_SESSION['id_exp'] = $id_exp;
- // echo($id_exp);
+   // echo($idexp);
+   $_SESSION['id_exp'] = $id_exp;
+   // echo($id_exp);
 }
 else
 {

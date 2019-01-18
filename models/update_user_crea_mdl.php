@@ -1,5 +1,6 @@
 <?php
 $id_users = $_SESSION['id_users'];
+$cv_exist=1;
 // update des Formations dans la  BDD
     try {
         $update = $pdo->prepare("UPDATE users SET 
@@ -9,7 +10,8 @@ $id_users = $_SESSION['id_users'];
             address_user=:address_user, 
             phone_user=:phone_user, 
             cv_title_user=:cv_title_user, 
-            handicap_user=:handicap_user 
+            handicap_user=:handicap_user,
+            cv_exist=:cv_exist 
             WHERE id_users = $id_users");
             /* on utilise bindParam() pour passer une variable qui correspondra au :nom  voulu. */
             $update->bindParam(":name_user",$name_user);
@@ -19,6 +21,7 @@ $id_users = $_SESSION['id_users'];
             $update->bindParam(":phone_user",$phone_user);
             $update->bindParam(":cv_title_user",$cv_title_user);
             $update->bindParam(":handicap_user",$handicap_user);
+            $update->bindParam(":cv_exist",$cv_exist);
             $update->execute();
 
     } 

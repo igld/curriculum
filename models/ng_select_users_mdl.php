@@ -30,8 +30,7 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"phone_user":"'.$rs["phone_user"].'",';
     $outp .= '"mail_user":"'.$rs["mail_user"].'",';
     $outp .= '"cv_title_user":"'.$rs["cv_title_user"].'",';
-    $outp .= '"handicap_user":"'.$rs["handicap_user"].'"}';
-    
+    $outp .= '"handicap_user":"'.$rs["handicap_user"].'"}';   
 }
 $outp ='{"users":['.$outp.']}';
 $conn->close();

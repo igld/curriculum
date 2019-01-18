@@ -43,38 +43,38 @@ if (isset($_POST['m_exp_pro'])){
   //numéro ligne à modifier
   $id_a_afficher_exp = htmlspecialchars($_POST['m_exp_pro']);
   include '../models/ng_select_exp_pro_mdl.php';
-  header('Refresh: 2;url=../views/modify_data.php');
+  header('Location: ../views/modify_data.php');
   exit();
 }
 if (isset($_POST['m_trainings'])){
   //numéro ligne à modifier
   $id_a_afficher_train = htmlspecialchars($_POST['m_trainings']);
   include '../models/ng_select_trainings_mdl.php';
-  header('Refresh: 2;url=../views/modify_data.php');
+  header('Location: ../views/modify_data.php');
   exit();
 }
 if (isset($_POST['m_skills'])){
   //numéro ligne à modifier
   $id_a_afficher_skill = htmlspecialchars($_POST['m_skills']);
   include '../models/ng_select_skills_mdl.php';
-  header('Refresh: 2;url=../views/modify_data.php');
+  header('Location: ../views/modify_data.php');
   exit();
 }
 if (isset($_POST['m_realisations'])){
   //numéro ligne à modifier
   $id_a_afficher_rea = htmlspecialchars($_POST['m_realisations']);
   include '../models/ng_select_realisations_mdl.php';
-  header('Refresh: 2;url=../views/modify_data.php');
+  header('Location: ../views/modify_data.php');
   exit();
 }
 if (isset($_POST['m_activities'])){
   //numéro ligne à modifier
   $id_a_afficher_act = htmlspecialchars($_POST['m_activities']);
   include '../models/ng_select_activities_mdl.php';
-  header('Refresh: 2;url=../views/modify_data.php');
+  header('Location: ../views/modify_data.php');
   exit();
 }
 include '../models/delete_mdl.php';
 echo "Donnée supprimée";
-header('Refresh: 2;url=../views/add_modify_delete_data.php');
+header('Location: ../views/add_modify_delete_data.php');
 

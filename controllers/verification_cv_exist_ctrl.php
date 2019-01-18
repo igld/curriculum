@@ -7,7 +7,7 @@ if (isset($_SESSION['mail']) AND isset($_SESSION['mdp']))
             echo "cv  existe";
             $modification = 'visible';
             $create = 'invisible';
-            $make_or_create = 'modification.php';
+            $make_or_create = 'cv.php';
         }
         else{
             //cache le boutton modifier et on affiche créer
@@ -18,5 +18,5 @@ if (isset($_SESSION['mail']) AND isset($_SESSION['mdp']))
         } 
     }
     else {
-        header('Refresh: 2;url=../index.php');
+        header('Location: ../index.php');
     }

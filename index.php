@@ -5,11 +5,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../BIBLIOCODE/1.HTML.CSS/2-BOOTSTRAP/bootstrap-4.1.3-dist/css/bootstrap.css">
-  <!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-  -->
+    <!-- <link rel="stylesheet" href="../BIBLIOCODE/1.HTML.CSS/2-BOOTSTRAP/bootstrap-4.1.3-dist/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  
+    <!-- Feuille de style CSS -->
+    <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
       <div class="container">
